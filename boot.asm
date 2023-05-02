@@ -1,6 +1,6 @@
 [BITS 16]
 mov ah,02h
-mv al,08h
+mov al,08h
 mov cx,0012h
 mov bx,8100h
 int 13h
