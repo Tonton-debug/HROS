@@ -1,14 +1,12 @@
 [BITS 16]
-
-        mov     ax, 4F02h
-        mov     bx, 0103h
-        int     10h
-MOV DX, 0x1F0      ;открываем порт IDE
-MOV AH, 0x3        ;команда записи
-MOV BX, 0x0001     ;начальный номер сектора
-MOV CX, 0x0001     ;количество секторов
-MOV DX, 1 ;адрес буфера данных
-INT 13h            ;биос вызывает функцию записи сектора
+mov ah,02h
+mv al,08h
+mov cx,0012h
+mov bx,8100h
+int 13h
+mov sp,810h
+mov ds,100h
+jmp 0000:8100h
 
 
 TIMES 510 - ($ - $$) db 0
